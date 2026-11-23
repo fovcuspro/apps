@@ -9,10 +9,23 @@
 <body>
 <main>
 <nav><a href="../../free-spirited-yoga/">Free-Spirited Yoga</a> <a href="../../free-spirited-yoga/privacy/">Privacy</a> <a href="../../free-spirited-yoga/terms/">Terms</a> <a href="../../free-spirited-yoga/support/">Support</a></nav>
-<h1>This link opens in Free-Spirited Yoga</h1>
-<div class="summary"><p>Someone has shared a routine with you. It opens in the Free-Spirited Yoga app for iPhone and iPad.
-<a href="https://apps.apple.com/gb/app/id6790792967">Get Free-Spirited Yoga on the App Store</a>, then tap the link you were sent again.</p></div>
-<script>location.replace("https://apps.apple.com/gb/app/id6790792967");</script>
+<style>
+.btn{display:block;text-align:center;padding:16px;margin:14px 0;border-radius:14px;font-weight:600;
+font-size:1.1em;text-decoration:none}
+.btn.primary{background:#E0A43A;color:#1b1b1b} .btn.secondary{border:2px solid currentColor}
+</style>
+<h1>Someone has shared a yoga routine with you</h1>
+<p>It opens in the Free-Spirited Yoga app.</p>
+<a class="btn primary" id="open" href="#">I have the app: open the routine</a>
+<a class="btn secondary" href="https://apps.apple.com/gb/app/id6790792967">Get Free-Spirited Yoga on the App Store</a>
+<script>
+(function () {
+  var p = new URLSearchParams(location.hash.slice(1)), d = p.get("d"), v = p.get("v") || "1";
+  var open = document.getElementById("open");
+  if (!d) { open.hidden = true; return; }
+  open.href = "freespirited://routine?v=" + encodeURIComponent(v) + "&d=" + encodeURIComponent(d);
+})();
+</script>
 <footer>© 2026 Ross Cowen. Contact: <a href="mailto:rosscowen@hotmail.com">rosscowen@hotmail.com</a></footer>
 </main>
 </body>
